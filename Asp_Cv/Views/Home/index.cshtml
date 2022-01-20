@@ -1,0 +1,113 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<form method="post" action="Home/login">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-7">
+              <a class="navbar-brand" href="#">Asp_Cv</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Home
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
+        </li>
+      </ul>
+       
+    
+</div>
+              
+          
+
+    
+    
+
+    
+    
+
+    </div>
+           <div class="col-2"><input type="text" placeholder="Adresse Email" class="form-control" name="email"/></div>
+              <div class="col-2"><input type="text" placeholder="Mots de Passe" class="form-control" name="mdp"/></div>
+              <div class="col-1"><button class="btn btn-secondary" type="submit">Login</button></div>
+      </div>
+  </div>
+</nav>
+ </form>
+<div class="container">
+    <div class="row">
+        <div class="row-1"></div>
+        <div class="row-10">
+            <div class="card border-primary mb-3" >
+              <div class="card-header"> 
+                  <label class="col-form-label mt-4" for="inputDefault">Recherche Personne</label>
+                  <form method="post" action="http://localhost:31416/Home/search">
+                  <div class="row">
+                                            
+                          <div class="col-1"></div>
+                          <div class="col-8"><input type="text" class="form-control" name="texte"placeholder="Nom ou Email" id="inputDefault"></div>
+                          <div class="col-2">  <button type="submit" class="btn btn-outline-primary">Recherche</button></div>
+                    
+                  </div>
+                      </form>
+                   
+                      
+                
+
+              </div>
+              <div class="card-body">
+                  
+                    
+                    
+                <table class="table table-hover">
+                      <thead>
+                        <tr class="table-active">
+                          <th scope="col">Nom</th>
+                          <th scope="col">Id</th>
+                          <th scope="col">Age</th>
+                          <th scope="col">Email</th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        @foreach (Asp_Cv.Models.Person p in ViewBag.persons) {
+                        <tr>
+                          <th scope="row">@Html.DisplayFor(modelItem=>p.Nom)</th>
+                          <td>@Html.DisplayFor(modelItem=>p.Id)</td>
+                          <td>@Html.DisplayFor(modelItem=>p.Age)</td>
+                          <td>@Html.DisplayFor(modelItem=>p.Email)</td>
+                        </tr>
+                        }
+                      </tbody>
+                </table>
+              </div>
+            </div>
+        </div>
+        <div class="row-1"></div>
+    </div>
+</div>
