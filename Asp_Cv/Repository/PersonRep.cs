@@ -20,7 +20,7 @@ namespace Asp_Cv.Repository
             con.Open();
             MySqlCommand cmd = new MySqlCommand(sql,con);
             MySqlDataReader read = cmd.ExecuteReader();
-            Person[] persons = new Person[read.FieldCount];
+            List<Person> persons = new List<Person>();
             if (!read.HasRows) {
                 read.Close();
                 con.Close();
@@ -34,10 +34,10 @@ namespace Asp_Cv.Repository
                 p.Nom = read["Nom"].ToString();
                 p.Email = read["Email"].ToString();
 
-                persons[p.Id] = p;
+                persons.Add(p);
             }
             con.Close();
-            return persons;
+            return persons.ToArray();
         }
         public List<Person> get(string text) {
             Person[] all = getAll();
@@ -47,6 +47,20 @@ namespace Asp_Cv.Repository
                 if (p.Nom == text || p.Email == text)
                     res.Add(p);  
             }
+            return res;
+        }
+        public List<Person> getMySql(string txt) {
+            List<Person> res = new List<Person>();
+            string sql = "SELECT * FROM `person` WHERE `Nom` LIKE '"+txt+"' OR 'Email' LIKE '"+txt+"'";
+            con.Open();
+                MySqlCommand cmd = new MySqlCommand(sql,con);
+                MySqlDataReader read = cmd.ExecuteReader();
+                while (read.Read()) {
+                    
+                    Person p = new Person(int.Parse(read["Id"].ToString()), read["Nom"].ToString(), read["Email"].ToString(), read["Mdp"].ToString(), int.Parse(read["Id"].ToString()));
+                    res.Add(p);
+                }
+            con.Close();
             return res;
         }
         public Person testLogin(string email,string mdp) {
@@ -69,6 +83,13 @@ namespace Asp_Cv.Repository
             
             
             return null;
+        }
+        public void newPerson(string nom,string email,string mdp,int age) {
+            string sql = "INSERT INTO `person` (`Id`, `Nom`, `Email`, `Mdp`, `Age`) VALUES (NULL, '"+nom+"', '"+email+"', '"+mdp+"', '"+age+"');";
+            con.Open();
+            MySqlCommand cmd = new MySqlCommand(sql, con);
+            MySqlDataReader read = cmd.ExecuteReader();
+            con.Close();
         }
     }
 

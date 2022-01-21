@@ -209,6 +209,7 @@
     <Content Include="Views\Home\index.cshtml" />
     <Content Include="Views\person\index.cshtml" />
     <Content Include="Views\Home\login.cshtml" />
+    <Content Include="Views\person\insc.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

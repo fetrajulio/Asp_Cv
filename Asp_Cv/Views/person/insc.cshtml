@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "insc";
+}
+
+<h2>insc</h2>
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <form method="post" action="http://localhost:31416/person/newPerson">
+                <div class="card  ">
+                  <div class="card-header text-white bg-primary mb-3">Header</div>
+                  <div class="card-body">
+                      <div class="form-group">
+                          <label class="col-form-label mt-4" for="inputDefault">Nom</label>
+                          <input type="text" name="nom" class="form-control" placeholder="Default input" >
+                        </div>
+                      <div class="form-group">
+                          <label class="col-form-label mt-4" for="inputDefault">Email</label>
+                          <input type="text" name="email" class="form-control" placeholder="Default input" >
+                        </div>
+                      <div class="form-group">
+                          <label class="col-form-label mt-4" for="inputDefault">Mots De Passe</label>
+                          <input type="text" name="mdp" class="form-control" placeholder="Default input" >
+                        </div>
+                      <div class="form-group">
+                          <label class="col-form-label mt-4" for="inputDefault">Age</label>
+                          <input type="text" name="age" class="form-control" placeholder="Default input" >
+                        </div>
+                    <button type="submit" class="btn btn-dark">Valider</button>
+                  </div>
+            
+                </div>
+            </form>
+    </div>
+    <div class="col-1"></div>
+</div>

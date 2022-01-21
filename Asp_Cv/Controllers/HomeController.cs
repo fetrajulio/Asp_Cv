@@ -37,7 +37,7 @@ namespace Asp_Cv.Controllers
         public ActionResult search() {
             string txt=Request.Form["texte"];
             if(txt!="")
-                ViewBag.persons = PersRep.get(txt);
+                ViewBag.persons = PersRep.getMySql(txt);
             else
                 ViewBag.persons = PersRep.getAll();
             return View("Index");
