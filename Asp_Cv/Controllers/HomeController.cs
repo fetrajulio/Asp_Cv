@@ -18,6 +18,10 @@ namespace Asp_Cv.Controllers
             ViewBag.persons = PersRep.getAll();
             return View();
         }
+        public ActionResult Trier() {
+            ViewBag.persons = PersRep.Trier();
+            return View("Index");
+        }
 
         public ActionResult login() {
             string Email = Request.Form["email"];

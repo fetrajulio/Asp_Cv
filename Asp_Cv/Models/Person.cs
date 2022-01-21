@@ -24,6 +24,20 @@ namespace Asp_Cv.Models
             this.Mdp = mdp;
             this.Nom = nom;
         }
+        public Person(Person p1) {
+            this.Age = p1.Age;
+            this.Email = p1.Email;
+            this.Id = p1.Id;
+            this.Mdp = p1.Mdp;
+            this.Nom = p1.Nom;
+        }
+        public void permut(Person p1) {
+            this.Age = p1.Age;
+            this.Email = p1.Email;
+            this.Id = p1.Id;
+            this.Mdp = p1.Mdp;
+            this.Nom = p1.Nom;
+        }
 
     }
 

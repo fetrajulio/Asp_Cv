@@ -91,6 +91,21 @@ namespace Asp_Cv.Repository
             MySqlDataReader read = cmd.ExecuteReader();
             con.Close();
         }
+        public Person[] Trier() {
+            Person[] all = this.getAll();
+            int n=all.Length;
+            foreach (Person p1 in all) { 
+                foreach(Person p2 in all){
+                    if (p1.Age > p2.Age) {
+                        
+                        Person temp = new Person(p1);
+                        p1.permut(p2);
+                        p2.permut(temp);
+                    }
+                }
+            }
+            return all;
+        }
     }
 
 }
