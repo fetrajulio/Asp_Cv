@@ -28,5 +28,26 @@ namespace Asp_Cv.Controllers
             pr.newPerson(nom,email,mdp,age);
             return Redirect("http://localhost:31416");
         }
+        public ActionResult sup(int id) {
+            pr.supp(id);
+            return Redirect("http://localhost:31416");
+        }
+        public ActionResult modif(int id) {
+            List<Person> all = pr.getAll().ToList();
+            Person p = all.Find(x=>x.Id==id);
+            ViewBag.pers = p;
+            return View();
+        }
+
+        public ActionResult exeMod(int id) {
+            
+            string nom = Request.Form["nom"];
+            string email = Request.Form["email"];
+            string mdp = Request.Form["mdp"];
+            int age = int.Parse(Request.Form["age"]);
+            pr.modif(id,nom,email,mdp,age);
+            return Redirect("http://localhost:31416");
+            
+        }
     }
 }

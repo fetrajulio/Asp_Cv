@@ -106,6 +106,22 @@ namespace Asp_Cv.Repository
             }
             return all;
         }
+
+        public void supp(int id) {
+            string sql = "DELETE FROM `person` WHERE `person`.`Id` ="+id;
+            con.Open();
+            MySqlCommand cmd = new MySqlCommand(sql, con);
+            MySqlDataReader read = cmd.ExecuteReader();
+            con.Close();
+        }
+
+        public void modif(int id,string nom,string email,string mdp,int age) {
+            string sql = "UPDATE `person` SET `Id` = '"+id+"', `Nom` = '"+nom+"', `Email` = '"+email+"', `Mdp` = '"+mdp+"', `Age` = '"+age+"' WHERE `person`.`Id` = "+id+"";
+            con.Open();
+            MySqlCommand cmd = new MySqlCommand(sql, con);
+            MySqlDataReader read = cmd.ExecuteReader();
+            con.Close();
+        }
     }
 
 }

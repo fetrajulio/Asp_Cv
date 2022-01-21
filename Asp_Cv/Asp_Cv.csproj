@@ -210,6 +210,7 @@
     <Content Include="Views\person\index.cshtml" />
     <Content Include="Views\Home\login.cshtml" />
     <Content Include="Views\person\insc.cshtml" />
+    <Content Include="Views\person\modif.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
